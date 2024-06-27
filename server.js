@@ -20,7 +20,7 @@ const app = express()
 // middlewares
 // CORS middleware
 app.use(cors({
-  origin: 'https://greenify-2ohq.vercel.app', // Replace with your frontend URL
+  origin: '*', // Allow requests from any origin
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type'],
   credentials: true,
