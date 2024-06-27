@@ -18,13 +18,23 @@ connectDB();
 const app = express();
 
 // Middleware
+// app.use(
+//   cors({
+//     origin: '*',
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     credentials: true,
+//   })
+// );
+// CORS middleware
 app.use(
   cors({
-    origin: '*',
+    origin: 'https://greenify-2ohq.vercel.app', // Adjust to your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'],
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(morgan('dev'));
 
