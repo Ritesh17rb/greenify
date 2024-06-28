@@ -11,24 +11,27 @@ import cors from 'cors';
 // Configure env
 dotenv.config();
 
-// database config
+// Database config
 connectDB();
 
 // Rest object
 const app = express();
 
 // CORS middleware
-app.use(cors({
-  origin: 'https://greenify-2ohq.vercel.app', // Specify your frontend URL
+const corsOptions = {
+  origin: 'https://greenify-ashy.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type'],
   credentials: true,
-}));
+};
+
+app.use(cors(corsOptions));
+
 
 app.use(express.json());
 app.use(morgan('dev'));
 
-// routes
+// Routes
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/category', categoryRoutes);
 app.use('/api/v1/product', productRoutes);
